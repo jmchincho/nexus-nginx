@@ -12,6 +12,7 @@ docker run -d -p 8081:8081 -p 5000:5000 --name nexus1 \
 
 docker run -d -p 80:80 -p 443:443 --name nginx1 \
     -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
+    -v /var/www/html/:/var/www/html:ro \
     --restart unless-stopped \
     --network nexus-net \
     nginx
